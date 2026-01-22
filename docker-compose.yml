@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pragati-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=False
+      - LLM_BASE_URL=http://ollama:11434
+      - CHROMA_PERSIST_DIR=/app/data/chroma_db
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/.env:/app/.env
+    depends_on:
+      - ollama
+    networks:
+      - pragati-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: pragati-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - pragati-network
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: pragati-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - pragati-network
+    restart: unless-stopped
+
+networks:
+  pragati-network:
+    driver: bridge
+
+volumes:
+  ollama-data:
