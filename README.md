@@ -196,7 +196,7 @@ pragati/
 - **Impact Assessment**: Teachers provide feedback on module effectiveness
 - **Continuous Improvement**: Data-driven insights to refine training content
 
-## �️ Roadmap
+## Roadmap
 
 ### Phase 1: Core Experience 
 - [ ] **Authentication**: Secure login for Teachers and DIET officials (OAuth/SSO)
