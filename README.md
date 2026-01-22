@@ -20,7 +20,7 @@ Current teacher training systems face critical challenges:
 PRAGATI leverages **RAG (Retrieval Augmented Generation)** to create:
 - ✅ **Personalized Micro-Learning**: 15-minute modules tailored to specific challenges
 - ✅ **Vernacular Support**: Multi-language translation (Hindi, Bengali, Tamil, Telugu, Marathi)
-- ✅ **Offline-First PWA**: Works on 2G/3G connectivity
+- ✅ **Offline-First PWA**: Works on poor connectivity areas
 - ✅ **Implementation Tracking**: Feedback loop to measure real-world impact
 
 ## 🏗️ Architecture
