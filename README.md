@@ -35,13 +35,11 @@ graph TB
     subgraph Backend
         D[FastAPI] --> E[RAG Service]
         E --> F[Vector DB<br/>ChromaDB]
-        E --> G[LLM<br/>Mistral-7B]
+        E --> G[LLM<br/>Ministral-3B]
         E --> H[Embeddings<br/>MiniLM]
-        D --> I[Translation<br/>NLLB-200]
     end
     
     A -->|API Calls| D
-    J[SCERT Manuals] -->|Ingest| E
     
     style A fill:#4f46e5
     style D fill:#10b981
@@ -53,29 +51,9 @@ graph TB
 ### Prerequisites
 - Python 3.11+
 - Node.js 20+
-- Docker & Docker Compose (optional)
 - Ollama (for local LLM)
 
-### Option 1: Docker Deployment (Recommended)
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/pragati.git
-cd pragati
-
-# Start all services
-docker-compose up --build
-
-# Pull Ollama model (in separate terminal)
-docker exec -it pragati-ollama ollama pull mistral:7b
-
-# Access the application
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:8000
-# API Docs: http://localhost:8000/docs
-```
-
-### Option 2: Local Development
+### Installation (Local Development)
 
 #### Backend Setup
 
@@ -93,7 +71,7 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Install and start Ollama (https://ollama.ai)
-ollama pull mistral:7b
+ollama pull ministral:3b
 
 # Run the backend
 python main.py
@@ -111,19 +89,24 @@ npm install
 npm run dev
 ```
 
-## 📚 Usage
+### Docker Deployment (Experimental)
 
-### 1. Ingest Training Manual
+> **Note:** Docker support is currently experimental and has not been fully tested.
 
 ```bash
-curl -X POST http://localhost:8000/api/ingest \
-  -F "file=@path/to/scert_manual.pdf" \
-  -F "title=SCERT Training Manual 2024"
+docker-compose up --build
 ```
 
-### 2. Generate Micro-Learning Module
+## 📚 Usage
+
+### Generate Micro-Learning Module
+
+1. Open the frontend at `http://localhost:5173`
+2. Enter a classroom challenge (e.g., "Students in my class have varying learning speeds")
+3. The AI will generate a personalized 15-minute micro-learning module.
 
 ```bash
+# API Equivalent
 curl -X POST http://localhost:8000/api/generate \
   -H "Content-Type: application/json" \
   -d '{
@@ -133,26 +116,13 @@ curl -X POST http://localhost:8000/api/generate \
   }'
 ```
 
-### 3. Translate Content
-
-```bash
-curl -X POST http://localhost:8000/api/translate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "text": "Welcome to the module",
-    "target_language": "hin_Deva",
-    "source_language": "eng_Latn"
-  }'
-```
-
 ## 🛠️ Tech Stack
 
 ### Backend
 - **Framework**: FastAPI
-- **LLM**: Ollama (Mistral-7B / Gemma-2)
+- **LLM**: Ollama (Ministral-3B)
 - **Embeddings**: sentence-transformers (all-MiniLM-L6-v2)
 - **Vector DB**: ChromaDB
-- **Translation**: NLLB-200 (Facebook)
 - **Document Processing**: PyPDF2, pdfplumber
 
 ### Frontend
@@ -164,9 +134,7 @@ curl -X POST http://localhost:8000/api/translate \
 - **HTTP Client**: Axios
 
 ### DevOps
-- **Containerization**: Docker + Docker Compose
-- **Reverse Proxy**: Nginx
-- **CI/CD**: GitHub Actions (planned)
+- **Containerization**: Docker (Experimental)
 
 ## 📁 Project Structure
 

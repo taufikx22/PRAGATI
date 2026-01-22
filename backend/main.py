@@ -14,22 +14,22 @@ from config import settings
 async def lifespan(app: FastAPI):
     """Application lifespan manager for startup/shutdown events."""
     # Startup
-    print("🚀 PRAGATI Backend Starting...")
-    print(f"📊 Environment: {settings.ENVIRONMENT}")
-    print(f"🔧 Debug Mode: {settings.DEBUG}")
+    print("PRAGATI Backend Starting...")
+    print(f"Environment: {settings.ENVIRONMENT}")
+    print(f"Debug Mode: {settings.DEBUG}")
     
     # Initialize Database
     try:
         from utils.db_utils import init_db
         init_db()
-        print("💾 Database initialized successfully")
+        print("Database initialized successfully")
     except Exception as e:
-        print(f"❌ Database initialization failed: {e}")
+        print(f"Database initialization failed: {e}")
     
     yield
     
     # Shutdown
-    print("👋 PRAGATI Backend Shutting Down...")
+    print("PRAGATI Backend Shutting Down...")
 
 app = FastAPI(
     title="PRAGATI API",
