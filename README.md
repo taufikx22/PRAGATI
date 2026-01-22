@@ -105,16 +105,7 @@ docker-compose up --build
 2. Enter a classroom challenge (e.g., "Students in my class have varying learning speeds")
 3. The AI will generate a personalized 15-minute micro-learning module.
 
-```bash
-# API Equivalent
-curl -X POST http://localhost:8000/api/generate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "challenge": "Students in my class have varying learning speeds",
-    "target_duration": 15,
-    "difficulty_level": "intermediate"
-  }'
-```
+
 
 ## 🛠️ Tech Stack
 
@@ -170,7 +161,7 @@ pragati/
 ## 🎓 Key Features
 
 ### 1. RAG Pipeline
-- **Document Ingestion**: Automatic PDF parsing and chunking
+- **Document Ingestion**: PDF parsing and chunking (Upload UI coming soon)
 - **Semantic Search**: Vector similarity search using embeddings
 - **Context-Aware Generation**: LLM generates content from retrieved chunks
 
@@ -179,8 +170,8 @@ pragati/
 - **Time-Bound**: 15-minute actionable sessions
 - **Structured Output**: Sections with activities and implementation tips
 
-### 3. Vernacular Translation
-- **Multi-Language**: Support for 6+ Indian languages
+### 3. Vernacular Translation (In Testing)
+- **Multi-Language**: Support for 6+ Indian languages (Currently disabled)
 - **Batch Translation**: Efficient translation of module sections
 - **Fallback Handling**: Graceful degradation if translation fails
 
@@ -189,17 +180,14 @@ pragati/
 - **Background Sync**: Queues requests when offline
 - **Install Prompt**: Add to home screen capability
 
-## 🧪 Testing
+### 5. DIET Overview Dashboard
+- **Real-time Analytics**: Track teacher engagement and module usage
+- **Live Activity**: Monitor recent teacher queries and interactions
+- **Data Visualization**: Charts and metrics for administrative insights
 
-```bash
-# Backend tests
-cd backend
-pytest tests/ -v --cov
-
-# Frontend tests
-cd frontend
-npm test
-```
+### 6. Feedback Loop
+- **Impact Assessment**: Teachers provide feedback on module effectiveness
+- **Continuous Improvement**: Data-driven insights to refine training content
 
 ## 📊 Performance
 
@@ -226,21 +214,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Innovation for Education Equity Hackathon**
 
-- Team Member 1 - Full Stack Engineer
-- Team Member 2 - ML Engineer
-- Team Member 3 - Frontend Developer
-- Team Member 4 - Backend Developer
+- Taufik Hussain
+- Sam Jacob
+- Vineet Jain
 
-## 🙏 Acknowledgments
-
-- SCERT for training manual resources
-- Ollama for local LLM deployment
-- HuggingFace for open-source models
-- Meta for NLLB translation models
 
 ## 📞 Support
 
-For questions or support, please open an issue on GitHub or contact us at [email@example.com](mailto:email@example.com).
+For questions or support, please open an issue on GitHub or contact us at [hussaintaufik@gmail.com](mailto:hussaintaufik@gmail.com).
 
 ---
 
