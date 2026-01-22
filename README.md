@@ -18,10 +18,41 @@ Current teacher training systems face critical challenges:
 ## 💡 Our Solution
 
 PRAGATI leverages **RAG (Retrieval Augmented Generation)** to create:
-- ✅ **Personalized Micro-Learning**: 15-minute modules tailored to specific challenges
+- ✅ **Personalized Micro-Learning**: 5, 15, or 40-minute modules tailored to specific challenges
 - ✅ **Vernacular Support**: Multi-language translation (Hindi, Bengali, Tamil, Telugu, Marathi)
 - ✅ **Offline-First PWA**: Works on poor connectivity areas
 - ✅ **Implementation Tracking**: Feedback loop to measure real-world impact
+
+## 🎓 Key Features
+
+### 1. RAG Pipeline
+- **Document Ingestion**: PDF parsing and chunking (Upload UI coming soon)
+- **Semantic Search**: Vector similarity search using embeddings
+- **Context-Aware Generation**: LLM generates content from retrieved chunks
+
+### 2. Micro-Learning Engine
+- **Challenge-Based**: Modules tailored to specific classroom problems
+- **Time-Bound**: 5, 15, or 40-minute actionable sessions
+- **Structured Output**: Sections with activities and implementation tips
+
+### 3. Vernacular Translation (In Testing)
+- **Multi-Language**: Support for 6+ Indian languages (Currently disabled)
+- **Batch Translation**: Efficient translation of module sections
+- **Fallback Handling**: Graceful degradation if translation fails
+
+### 4. Offline-First PWA
+- **Service Worker**: Caches API responses and static assets
+- **Background Sync**: Queues requests when offline
+- **Install Prompt**: Add to home screen capability
+
+### 5. DIET Overview Dashboard
+- **Real-time Analytics**: Track teacher engagement and module usage
+- **Live Activity**: Monitor recent teacher queries and interactions
+- **Data Visualization**: Charts and metrics for administrative insights
+
+### 6. Feedback Loop
+- **Impact Assessment**: Teachers provide feedback on module effectiveness
+- **Continuous Improvement**: Data-driven insights to refine training content
 
 ## 🏗️ Architecture
 
@@ -105,7 +136,7 @@ docker-compose up --build
 2. **Select your role** (Teacher) from the landing page.
 3. Click on the **Teachers** option in the sidebar to enter the chat area.
 4. Enter a classroom challenge (e.g., "Students in my class have varying learning speeds")
-5. The AI will generate a personalized 15-minute micro-learning module.
+5. The AI will generate a personalized 5, 15, or 40-minute micro-learning module along with the relevant duration.
 
 ### DIET Official Dashboard
 
@@ -165,36 +196,6 @@ pragati/
 └── README.md
 ```
 
-## 🎓 Key Features
-
-### 1. RAG Pipeline
-- **Document Ingestion**: PDF parsing and chunking (Upload UI coming soon)
-- **Semantic Search**: Vector similarity search using embeddings
-- **Context-Aware Generation**: LLM generates content from retrieved chunks
-
-### 2. Micro-Learning Engine
-- **Challenge-Based**: Modules tailored to specific classroom problems
-- **Time-Bound**: 15-minute actionable sessions
-- **Structured Output**: Sections with activities and implementation tips
-
-### 3. Vernacular Translation (In Testing)
-- **Multi-Language**: Support for 6+ Indian languages (Currently disabled)
-- **Batch Translation**: Efficient translation of module sections
-- **Fallback Handling**: Graceful degradation if translation fails
-
-### 4. Offline-First PWA
-- **Service Worker**: Caches API responses and static assets
-- **Background Sync**: Queues requests when offline
-- **Install Prompt**: Add to home screen capability
-
-### 5. DIET Overview Dashboard
-- **Real-time Analytics**: Track teacher engagement and module usage
-- **Live Activity**: Monitor recent teacher queries and interactions
-- **Data Visualization**: Charts and metrics for administrative insights
-
-### 6. Feedback Loop
-- **Impact Assessment**: Teachers provide feedback on module effectiveness
-- **Continuous Improvement**: Data-driven insights to refine training content
 
 ## Roadmap
 
