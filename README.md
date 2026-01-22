@@ -102,10 +102,17 @@ docker-compose up --build
 ### Generate Micro-Learning Module
 
 1. Open the frontend at `http://localhost:5173`
-2. Enter a classroom challenge (e.g., "Students in my class have varying learning speeds")
-3. The AI will generate a personalized 15-minute micro-learning module.
+2. **Select your role** (Teacher) from the landing page.
+3. Click on the **Teachers** option in the sidebar to enter the chat area.
+4. Enter a classroom challenge (e.g., "Students in my class have varying learning speeds")
+5. The AI will generate a personalized 15-minute micro-learning module.
 
+### DIET Official Dashboard
 
+1. Navigate to the **DIET Overview** section in the sidebar.
+2. **Track Activity**: View real-time metrics on how many teachers are actively using the platform and generating modules.
+3. **Monitor Challenges**: Analyze the specific queries and problems teachers are submitting (e.g., "classroom management", "inclusive education") to identify systemic issues.
+4. **Review Feedback**: Check the feedback loop sections to see how effectively teachers are implementing the generated advice and whether it is solving their problems.
 
 ## 🛠️ Tech Stack
 
@@ -189,12 +196,19 @@ pragati/
 - **Impact Assessment**: Teachers provide feedback on module effectiveness
 - **Continuous Improvement**: Data-driven insights to refine training content
 
-## 📊 Performance
+## �️ Roadmap
 
-- **Module Generation**: ~5-10 seconds (depends on LLM)
-- **Translation**: ~2-3 seconds per section
-- **Document Ingestion**: ~1 second per page
-- **Vector Search**: <100ms for top-5 results
+### Phase 1: Core Experience 
+- [ ] **Authentication**: Secure login for Teachers and DIET officials (OAuth/SSO)
+- [ ] **Document Upload**: Admin UI for uploading and managing RAG documents
+- [ ] **Vernacular Support**: Full integration of NLLB for reliable multi-language translation
+- [ ] **Profile Setup**: User profiles with subjects, grade levels, and teaching preferences
+
+### Phase 2: Enhanced Personalization 
+- [ ] **Custom Instructions**: Ability to set global pedagogical preferences (e.g., "Always suggest low-cost activities")
+- [ ] **Voice Interaction**: Speech-to-text for querying and Text-to-speech for listening to modules
+- [ ] **PDF Export**: Download generated modules for offline sharing
+- [ ] **Gamification**: Badges and certificates for completed training modules
 
 ## 🤝 Contributing
 
