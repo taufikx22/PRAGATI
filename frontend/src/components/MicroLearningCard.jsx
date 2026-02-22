@@ -70,8 +70,8 @@ export default function MicroLearningCard({ module, onFeedbackClick, isInChat = 
                         </div>
 
                         {/* Section Content */}
-                        <div className="prose prose-sm max-w-none mb-4 prose-p:my-3 prose-ul:my-2 prose-li:my-1 prose-strong:text-pragati-primary prose-strong:font-bold">
-                            <div className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">
+                        <div className="prose prose-sm max-w-none mb-4 prose-p:my-1 prose-ul:my-2 prose-li:my-0.5 prose-strong:text-pragati-primary prose-strong:font-bold [&_li>p]:my-0">
+                            <div className="text-gray-700 text-sm leading-relaxed">
                                 <ReactMarkdown>{section.content}</ReactMarkdown>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ export default function MicroLearningCard({ module, onFeedbackClick, isInChat = 
                                         <p className="text-[10px] text-pragati-accent font-black uppercase tracking-widest mb-2">
                                             Activity
                                         </p>
-                                        <div className="text-sm text-pragati-text/80 leading-relaxed prose-sm prose-pragati prose-p:my-2 prose-ul:my-1 prose-li:my-0.5 prose-strong:text-pragati-accent prose-strong:font-bold whitespace-pre-line">
+                                        <div className="text-sm text-pragati-text/80 leading-relaxed prose-sm prose-pragati prose-p:my-1 prose-ul:my-1 prose-li:my-0 prose-strong:text-pragati-accent prose-strong:font-bold [&_li>p]:my-0">
                                             <ReactMarkdown>{section.activity}</ReactMarkdown>
                                         </div>
                                     </div>

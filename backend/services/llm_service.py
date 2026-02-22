@@ -17,6 +17,8 @@ class LLMService:
         self.model = settings.LLM_MODEL
         self.temperature = settings.LLM_TEMPERATURE
         self.max_tokens = settings.LLM_MAX_TOKENS
+        self.repeat_penalty = settings.LLM_REPEAT_PENALTY
+        self.top_p = settings.LLM_TOP_P
         logger.info(f"LLM Service initialized with model: {self.model}")
     
     async def generate(
@@ -24,7 +26,9 @@ class LLMService:
         prompt: str,
         system_prompt: Optional[str] = None,
         temperature: Optional[float] = None,
-        max_tokens: Optional[int] = None
+        max_tokens: Optional[int] = None,
+        repeat_penalty: Optional[float] = None,
+        top_p: Optional[float] = None
     ) -> str:
         """
         Generate text using the LLM.
@@ -34,6 +38,8 @@ class LLMService:
             system_prompt: Optional system prompt
             temperature: Sampling temperature (overrides default)
             max_tokens: Max tokens to generate (overrides default)
+            repeat_penalty: Penalty for repetition (overrides default)
+            top_p: Nucleus sampling probability (overrides default)
         
         Returns:
             Generated text
@@ -46,7 +52,9 @@ class LLMService:
                     "stream": False,
                     "options": {
                         "temperature": temperature or self.temperature,
-                        "num_predict": max_tokens or self.max_tokens
+                        "num_predict": max_tokens or self.max_tokens,
+                        "repeat_penalty": repeat_penalty or self.repeat_penalty,
+                        "top_p": top_p or self.top_p
                     }
                 }
                 

@@ -63,3 +63,9 @@ reproduce_issue.py
 backend/test_ollama.py
 backend/reproduce_issue.py
 pragati demo video.mp4
+git_status.txt
+git_log.txt
+git_diff.txt
+frontend_kt_guide.md
+diff.txt
+backend_kt_guide.md

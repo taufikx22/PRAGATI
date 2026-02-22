@@ -22,8 +22,10 @@ class Settings(BaseSettings):
     # LLM Stuff (Ollama)
     LLM_MODEL: str = "ministral:3b"
     LLM_BASE_URL: str = "http://localhost:11434"
-    LLM_TEMPERATURE: float = 0.7
+    LLM_TEMPERATURE: float = 0.6
     LLM_MAX_TOKENS: int = 4096
+    LLM_REPEAT_PENALTY: float = 1.2
+    LLM_TOP_P: float = 0.9
     LLM_REQUEST_TIMEOUT: float = 60.0
     
     # RAG / Embeddings
