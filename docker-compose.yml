@@ -17,10 +17,29 @@ services:
       - ./backend/data:/app/data
       - ./backend/.env:/app/.env
     depends_on:
-      - ollama
+      ollama:
+        condition: service_started
+      ollama-pull-model:
+        condition: service_completed_successfully
     networks:
       - pragati-network
     restart: unless-stopped
+
+  ollama-pull-model:
+    image: alpine:latest
+    container_name: ollama-pull-model
+    command: >
+      /bin/sh -c "apk add --no-cache curl &&
+      echo 'Waiting for Ollama service...' &&
+      while ! curl -s http://ollama:11434/ > /dev/null; do sleep 2; done &&
+      echo 'Ollama service is up. Pulling model ministral:3b...' &&
+      curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"ministral:3b\"}' &&
+      echo 'Model pulled successfully.'
+      "
+    depends_on:
+      - ollama
+    networks:
+      - pragati-network
 
   frontend:
     build:
