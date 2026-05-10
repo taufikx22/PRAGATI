@@ -182,10 +182,7 @@ async def submit_feedback(request: FeedbackRequest):
     Submit implementation feedback for a module.
     """
     try:
-        from utils.db_utils import save_feedback, init_db
-        
-        # Ensure DB is initialized
-        init_db()
+        from utils.db_utils import save_feedback
         
         # Save feedback
         feedback_id = save_feedback({
